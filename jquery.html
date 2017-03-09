@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>JQuery - DOM HTML</title>
+ <script src="http://code.jquery.com/jquery.js"></script> 
+
+ </head>
+
+ <body>
+ <form id="myForm">
+ <p>Name: <input type="text" id="firstname" /><br />
+ <input type="submit" value="Submit">
+ </form>
+ <p id="greeting"></p>
+ <script>
+ 
+ $(document).ready(function(){
+ $('#myForm').submit(function() {
+ firstname = $("#firstname").val(); 
+ $("#greeting").html(firstname );
+  
+ return false;
+});
+});
+ </script>
+ </body>
+</html> 

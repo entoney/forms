@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Form</title>
+</head>
+<body>
+<form  id="form1" action=" "/>
+<p>Input Name 1: <input type="text" id="name1" /></p>
+<p>Input Name 2: <input type="text" id="name2" /></p>
+<p>Input Name 3: <input type="text" id="name3" /></p>
+<input type="submit" value="Submit">
+</form>
+<p id="names"></p>
+<p id="letters"></p>
+
+
+<script>
+
+// the following lines grab the input from the form and store it in variables
+    document.getElementById("form1").onsubmit=function() {
+    name1 = document.getElementById("name1").value;
+    name2 = document.getElementById("name2").value;
+    name3 = document.getElementById("name3").value;
+    //Include each name in an array
+    namelist = [name1, name2, name3];  
+    
+    //this loop goes through the array and determines the number of characters in each
+    total =0;
+
+    for(i=0;i<namelist.length; i++) {
+    if(namelist[i].length > 4) {
+    document.getElementById("names").innerHTML += namelist[i] + " has " + namelist[i].length + " letters in it*<br />";
+    total = total + namelist[i].length; 
+  }
+  else {
+  document.getElementById("names").innerHTML += namelist[i] + " has " + namelist[i].length + " letters in it<br />";
+    total = total + namelist[i].length;
+  }
+  
+    } // end for
+    document.getElementById("letters").innerHTML = total;
+    
+return false; // required to not refresh the page; just leave this here
+}// end the submit function
+</script>
+</body>
+</html>
